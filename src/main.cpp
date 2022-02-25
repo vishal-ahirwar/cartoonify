@@ -2,9 +2,7 @@
 
 int main()
 {
-    cart::cartoonifyImage();
-    
-    std::cerr << "Copyright(c) V101 Inc. developer : Vishal Ahirwar. All rights reserved.\n";
+    cart::About();
 
     cv::VideoCapture Cap(0);
     cv::Mat img, newimg;
@@ -16,6 +14,7 @@ int main()
         Cap.read(img);
         if (img.empty())
             return -1;
+        cart::cartoonifyImage(&img);
         cv::imshow("cartoonify filter", img);
         if (cv::waitKey(1) == 27)
             break;
